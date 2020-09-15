@@ -92,5 +92,6 @@ public void __pl_avatar_changer_SetNTVOptional()
 	MarkNativeAsOptional("SetPlayerAvatarFromFile");
 	MarkNativeAsOptional("GetPlayerAvatar");
 	MarkNativeAsOptional("LoadAvatarFromFile");
+	MarkNativeAsOptional("RefreshAvatarFileCache");
 }
 #endif

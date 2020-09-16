@@ -23,7 +23,7 @@ public Plugin myinfo =
 {
 	name = "Avatar Changer",
 	author = "Wend4r",
-	version = "1.0 Beta 1",
+	version = "1.0 Beta 2",
 	url = "Discord: Wend4r#0001 | VK: vk.com/wend4r"
 };
 
@@ -184,6 +184,20 @@ void LoadSettings(bool bLoadPlayers)
 	}
 
 	SMCParseFile(hParser, sPath);
+
+	if(bLoadPlayers)
+	{
+		decl char sAuth[64];
+
+		for(int i = MaxClients + 1; --i;)
+		{
+			if(IsClientAuthorized(i))
+			{
+				GetClientAuthId(i, AuthId_Engine, sAuth, sizeof(sAuth));
+				OnClientAuthorized(i, sAuth);
+			}
+		}
+	}
 }
 
 void SMCParseFile(SMCParser hParser, const char[] sPath)		// I also use it in other plugins :P.
